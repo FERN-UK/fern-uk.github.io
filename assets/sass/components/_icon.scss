@@ -1,5 +1,5 @@
 ///
-/// Stellar by HTML5 UP
+/// Phantom by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -8,10 +8,6 @@
 
 	.icon {
 		@include icon;
-		@include vendor('transition', (
-			'background-color #{_duration(transition)} ease-in-out',
-			'color #{_duration(transition)} ease-in-out'
-		));
 		border-bottom: none;
 		position: relative;
 
@@ -20,7 +16,7 @@
 		}
 
 		&:before {
-			line-height: solid;
+			line-height: inherit;
 		}
 
 		&.solid {
@@ -35,112 +31,36 @@
 			}
 		}
 
-		&.major {
-			border: solid 1px;
-			display: inline-block;
-			border-radius: 100%;
-			padding: 0.65em;
-			margin: 0 0 _size(element-margin) 0;
-			cursor: default;
-
-			&:before {
-				display: inline-block;
-				font-size: 6.25rem;
-				width: 2.25em;
-				height: 2.25em;
-				line-height: 2.2em;
-				border-radius: 100%;
-				border: solid 1px;
-				text-align: center;
-			}
-		}
-
-		&.alt {
-			display: inline-block;
-			border: solid 1px;
-			border-radius: 100%;
-
-			&:before {
-				display: block;
-				font-size: 1.25em;
-				width: 2em;
-				height: 2em;
-				text-align: center;
-				line-height: 2em;
-			}
-		}
-
 		&.style1 {
-			color: _palette(accent1);
 		}
 
 		&.style2 {
-			color: _palette(accent2);
-		}
+			@include vendor('transition', (
+				'background-color #{_duration(transition)} ease-in-out',
+				'color #{_duration(transition)} ease-in-out',
+				'border-color #{_duration(transition)} ease-in-out'
+			));
+			background-color: transparent;
+			border: solid 1px _palette(border);
+			border-radius: _size(border-radius);
+			width: 2.65em;
+			height: 2.65em;
+			display: inline-block;
+			text-align: center;
+			line-height: 2.65em;
+			color: inherit;
 
-		&.style3 {
-			color: _palette(accent3);
-		}
-
-		&.style4 {
-			color: _palette(accent4);
-		}
-
-		&.style5 {
-			color: _palette(accent5);
-		}
-
-		@include breakpoint('<=xlarge') {
-			&.major {
-				&:before {
-					font-size: 5.5rem;
-				}
+			&:before {
+				font-size: 1.1em;
 			}
-		}
 
-		@include breakpoint('<=large') {
-			&.major {
-				&:before {
-					font-size: 4.75rem;
-				}
+			&:hover {
+				color: _palette(accent1);
+				border-color: _palette(accent1);
 			}
-		}
 
-		@include breakpoint('<=small') {
-			&.major {
-				margin: 0 0 (_size(element-margin) * 0.75) 0;
-				padding: 0.35em;
-
-				&:before {
-					font-size: 3.5rem;
-				}
+			&:active {
+				background-color: transparentize(_palette(accent1), 0.9);
 			}
 		}
 	}
-
-	@mixin color-icon($p: null) {
-		.icon {
-			&.major {
-				border-color: _palette($p, border);
-
-				&:before {
-					border-color: _palette($p, border);
-				}
-			}
-
-			&.alt {
- 				border-color: _palette($p, border);
- 				color: _palette($p, fg-bold);
-
-				&:hover {
-					background-color: _palette($p, border-bg);
-				}
-
-				&:active {
-					background-color: _palette($p, border2-bg);
-				}
- 			}
-		}
-	}
-
-	@include color-icon;

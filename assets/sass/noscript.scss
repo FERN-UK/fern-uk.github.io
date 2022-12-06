@@ -6,23 +6,18 @@
 @import 'libs/html-grid';
 
 /*
-	Stellar by HTML5 UP
+	Phantom by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Header */
+/* Tiles */
 
-	#header {
+	.tiles {
 		body.is-preload & {
-			&.alt {
-				> * {
-					opacity: 1;
-				}
-
-				.logo {
-					@include vendor('transform', 'none');
-				}
+			article {
+				@include vendor('transform', 'none');
+				opacity: 1;
 			}
 		}
 	}
